@@ -35,13 +35,9 @@ figure figcaption {
 figure figcaption h2 {
   margin:0;
   padding:0;
-  display:bl2ock;
+  display:block;
   line-height: 1.5em;
   width: 600px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight:normal;
 }
 
 figure figcaption p {
@@ -172,20 +168,5 @@ figure.current {
   <body>
 </html>
   <script type="text/javascript">
-  $('figure').addClass("next").first().removeClass("next").addClass("current");
 
-setInterval(function() { 
-  var nxt = $('figure.current')
-    .removeClass("current")
-    .addClass("prev")
-    .next();
-  if(nxt.length == 0) {
-    
-    nxt = $('figure:first');
-    $('figure:gt(0)').addClass('next').removeClass('prev');
-  }
-  
-    nxt.addClass("current")
-    .removeClass("next").removeClass("prev")
-},  4000);
   </script>
