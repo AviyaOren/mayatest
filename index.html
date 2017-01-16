@@ -4,73 +4,187 @@
 <meta charset="utf-8" />
 <title>Maya - Aviya</title>
 <style type="text/css">
-.polaroid 
-{
-  position: relative;
-  width: 640px;
-}
-
-.polaroid img {
-  border: 10px solid #fff;
-  border-bottom: 45px solid #fff;
-  -webkit-box-shadow: 3px 3px 3px #777;
-     -moz-box-shadow: 3px 3px 3px #777;
-          box-shadow: 3px 3px 3px #777;
-}
-
-.polaroid p {
-  position: absolute;
-  text-align: center;
+body {
   width: 100%;
-  bottom: 0px;
-  font: 400 18px/1 'Kaushan Script', cursive;
-  color: #888;
+}
+
+figure img{
+  display:none;
+}
+figure .img {
+  width: 600px;
+  height: 600px;
+  background-size:cover;
+  background-position: center center;
+}
+figure.prev  .img{
+  display:none;
+}
+
+figure.next  .img{
+  display:none;
+}
+
+
+figure figcaption {
+  text-align: center;
+  font-family: 'Reenie Beanie', cursive;
+  
+}
+
+figure figcaption h2 {
+  margin:0;
+  padding:0;
+  display:bl2ock;
+  line-height: 1.5em;
+  width: 600px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight:normal;
+}
+
+figure figcaption p {
+  display:none;
+}
+
+figure {
+  background-color: white;
+  box-shadow:         3px 3px 5px 6px rgba(0,0,0, 0.2);
+  padding: 30px;
+  width: 600px;
+  transform: scale(0.7);
+  transition: all 1s ease-in-out,
+              z-index 0s ease-in-out 1s;
+  position:absolute;
+  z-index:0;
+}
+
+figure:nth-child(2n) {  
+  transform: rotate(10deg) scale(0.7);
+}
+
+figure:nth-child(3n) {  
+  transform: rotate(-10deg) scale(0.7);
+}
+
+figure.prev, figure.next{
+  top:0;
+  transform: zoom(0.9);
+}
+
+figure.prev {
+  left: 0%;
+}
+
+figure.next {
+  left: 100%;
+  margin-left: -20%;
+}
+
+figure.current {
+  transform: rotate(0deg) scale(1);
+  left: 50%;
+  margin-left: -125px;
+  z-index:100;
 }
 </style>
+<script type="text/javascript">
+  $('figure').addClass("next").first().removeClass("next").addClass("current");
 
+setInterval(function() { 
+  var nxt = $('figure.current')
+    .removeClass("current")
+    .addClass("prev")
+    .next();
+  if(nxt.length == 0) {
+    
+    nxt = $('figure:first');
+    $('figure:gt(0)').addClass('next').removeClass('prev');
+  }
+  
+    nxt.addClass("current")
+    .removeClass("next").removeClass("prev")
+},  4000);
+  </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div class="polaroid" id="image_1">
-  <p>הכל התחיל בסטטיסטיקה</p>
-  <img src="http://statistics.wdfiles.com/local--files/ch7/z.png" />
-</div>
-<div class="polaroid" id="image_2">
-  <p>Sarah, Dec '02</p>
-  <img src="http://images1.ynet.co.il/PicServer5/2017/01/16/7521966/7521571492280autoresize.jpg" />
-</div>
-<div class="polaroid" id="image_3">
-  <p>Sarah, Dec '02</p>
-  <img src="http://images1.ynet.co.il/PicServer5/2017/01/16/7521966/7521571492280autoresize.jpg" />
-</div>
-<div class="polaroid" id="image_4">
-  <p>Sarah, Dec '02</p>
-  <img src="http://images1.ynet.co.il/PicServer5/2017/01/16/7521966/7521571492280autoresize.jpg" />
-</div>
-<div class="polaroid" id="image_5">
-  <p>Sarah, Dec '02</p>
-  <img src="http://images1.ynet.co.il/PicServer5/2017/01/16/7521966/7521571492280autoresize.jpg" />
-</div>
-<div class="polaroid" id="image_6">
-  <p>Sarah, Dec '02</p>
-  <img src="http://images1.ynet.co.il/PicServer5/2017/01/16/7521966/7521571492280autoresize.jpg" />
-</div>
-<div class="polaroid" id="image_7">
-  <p>Sarah, Dec '02</p>
-  <img src="http://images1.ynet.co.il/PicServer5/2017/01/16/7521966/7521571492280autoresize.jpg" />
-</div>
-<div class="polaroid" id="image_8">
-  <p>Sarah, Dec '02</p>
-  <img src="http://images1.ynet.co.il/PicServer5/2017/01/16/7521966/7521571492280autoresize.jpg" />
-</div>
-<div class="polaroid" id="image_9">
-  <p>Sarah, Dec '02</p>
-  <img src="http://images1.ynet.co.il/PicServer5/2017/01/16/7521966/7521571492280autoresize.jpg" />
-</div>
-<div class="polaroid" id="image_10">
-  <p>Sarah, Dec '02</p>
-  <img src="http://images1.ynet.co.il/PicServer5/2017/01/16/7521966/7521571492280autoresize.jpg" />
-</div>
-</body>
+<link href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css'>
+<body>
+<figure>
+  <img src="http://farm8.staticflickr.com/7324/12378548645_2d3da9fc07_b.jpg" />
+  <div class="img" style="background-image: url(http://statistics.wdfiles.com/local--files/ch7/z.png)"></div>
+  <figcaption>
+    <h2>אז הכל התחיל פה</h2>
+  </figcaption>
+</figure>
+<figure>
+  <img src="http://farm4.staticflickr.com/3592/3633095489_381ec003e2_b.jpg" />
+  <div class="img" style="background-image: url(assets/img/MA-1.jpeg)"></div>
+  <figcaption>
+    <h2>משם עברנו כבר לא מעט</h2>
+  </figcaption>
+</figure>
+
+<figure>
+  <img src="http://farm3.staticflickr.com/2436/3633956556_eb96ddab1e_o.jpg" />
+  <div class="img" style="background-image: url(http://farm3.staticflickr.com/2436/3633956556_eb96ddab1e_o.jpg)"></div>
+  <figcaption>
+    <h2>בילינו</h2>
+  </figcaption>
+</figure>
+
+<figure>
+  <img src="http://farm4.staticflickr.com/3641/3684159186_ddb7a12b71_b.jpg" />
+  <div class="img" style="background-image:url(http://farm4.staticflickr.com/3641/3684159186_ddb7a12b71_b.jpg)"></div>
+  <figcaption>
+    <h2>אכלנו</h2>
+  </figcaption>
+</figure>
+
+<figure>
+  <img src="http://farm3.staticflickr.com/2454/3633953178_6e6e7d095c_b.jpg" />
+  <div class="img" style="background-image: url(http://farm3.staticflickr.com/2454/3633953178_6e6e7d095c_b.jpg)"></div>
+  <figcaption>
+    <h2>עברנו ביחד</h2>
+  </figcaption>
+</figure>
+  <figure>
+  <img src="http://farm3.staticflickr.com/2454/3633953178_6e6e7d095c_b.jpg" />
+  <div class="img" style="background-image: url(http://farm3.staticflickr.com/2454/3633953178_6e6e7d095c_b.jpg)"></div>
+  <figcaption>
+    <h2>טיילנו בחו״ל </h2>
+  </figcaption>
+</figure>
+  <figure>
+  <img src="http://farm3.staticflickr.com/2454/3633953178_6e6e7d095c_b.jpg" />
+  <div class="img" style="background-image: url(http://farm3.staticflickr.com/2454/3633953178_6e6e7d095c_b.jpg)"></div>
+  <figcaption>
+    <h2>בינגו הצטרף למשפחה</h2>
+  </figcaption>
+</figure>
+  <figure>
+  <img src="http://farm3.staticflickr.com/2454/3633953178_6e6e7d095c_b.jpg" />
+  <div class="img" style="background-image: url(http://farm3.staticflickr.com/2454/3633953178_6e6e7d095c_b.jpg)"></div>
+  <figcaption>
+    <h2>ועכשיו הגיע הזמן לשאול את השאלה</h2>
+  </figcaption>
+</figure>
+  <figure>
+  <img src="http://farm3.staticflickr.com/2454/3633953178_6e6e7d095c_b.jpg" />
+  <div class="img" style="background-image: url(http://farm3.staticflickr.com/2454/3633953178_6e6e7d095c_b.jpg)"></div>
+  <figcaption>
+    <h2>היא החזירה תשובה</h2>
+  </figcaption>
+</figure>
+  <figure>
+  <img src="http://farm3.staticflickr.com/2454/3633953178_6e6e7d095c_b.jpg" />
+  <div class="img" style="background-image: url(http://farm3.staticflickr.com/2454/3633953178_6e6e7d095c_b.jpg)"></div>
+  <figcaption>
+    <h2>החלטנו לתת לכם קצת זמן לעכל אז נסענו לכמה ימים, נחזור בשני.</h2>
+  </figcaption>
+</figure>
+  <body>
 </html>
