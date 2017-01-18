@@ -4,6 +4,14 @@
 <meta charset="utf-8" />
 <title>Maya - Aviya</title>
 <style type="text/css">
+  @font-face {
+    font-family: handWriteFont;
+    src: url(JennaSue.ttf);
+}
+.handWrite
+{
+  font-family:handWriteFont;
+}
 body {
   width: 100%;
 }
@@ -51,7 +59,7 @@ figure figcaption p {
   width: 800px;
   margin-left:20px;
   margin-top:20px;
-  z-index:0;
+  z-index:100;
 }
 
 figure {
@@ -97,7 +105,7 @@ figure.current {
 </head>
 <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css'>
 <body>
-  <img src="http://www.passionassembly.org/wp-content/uploads/2014/09/our-story.gif" class="headerImage"/>
+  <div style="background-image: url('http://www.passionassembly.org/wp-content/uploads/2014/09/our-story.gif')" class="headerImage"/>
   <div class="container">
 <figure class="current">
   <img src="http://farm8.staticflickr.com/7324/12378548645_2d3da9fc07_b.jpg" />
@@ -203,6 +211,10 @@ figure.current {
   <img src="https://s27.postimg.org/stbibhd2b/IMG_3420.jpg" />
   <div class="img" style="background-image: url(https://s27.postimg.org/stbibhd2b/IMG_3420.jpg)"></div>
 </figure>
+  </div>
+  
+  <div class="handWrite">
+    With love, Maya & Aviya
   </div>
   <body>
 </html>
